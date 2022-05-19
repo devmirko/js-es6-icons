@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 70px;
+    background-color: red;
+}
+
+.container{
+    height: calc(100vh - 70px);
+}
+
+#selezione_container{
+    height: 70px;
+    background-color: blue;
+}
+
+#icone_container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+}
+
+.box i{
+    font-size: 80px;
+}
+
+.name {
+    font-size: 40px;
+}
+
