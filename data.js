@@ -1,3 +1,4 @@
+
 const icone = [
 	{
 		name: 'cat',
@@ -115,13 +116,27 @@ const icone = [
 
 
 //Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell’icona e l’icona stessa.
-//creo una funzione che genera le card
+
 const containerIcon = document.getElementById("icone_container");
-const containerSel =  document.getElementById("selezione_container");
+const containerSel =  document.getElementById("selettore_icone");
+const scelta =  containerSel.value;
 
 
-insertCard();
+insertBox();
 
+containerSel.addEventListener("change",
+function () {
+
+	// containerIcon.innerHTML = "";
+
+	if (scelta == "all") {
+		insertBox();
+	} else {
+		insertFilterBox()
+	}
+}
+)
+//creo una funzione che genera le card
 function generatorBox (icons) {
      return `
 	 <div class="box">
@@ -133,9 +148,25 @@ function generatorBox (icons) {
 
 	 //inserisci le box
 
-	 function insertCard() {
+	 function insertBox() {
 		 icone.forEach((icon) => {
 			containerIcon.innerHTML += generatorBox(icon);
 		});
 		 
 	 }
+
+	 //filtra le box in base alla scelta
+	 function filtro(box) {
+		 icone.filter((box) => {
+			return box.type == scelta.value;
+		});
+	 }
+
+	 //inserisci le box filtrate
+	 function insertFilterBox() {
+		 let boxes = filtro();
+		 boxes.forEach((box) => {
+			containerIcon.innerHTML += generatorBox(box);
+		});
+
+	} 

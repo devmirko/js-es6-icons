@@ -16,11 +16,11 @@ header{
 #selezione_container{
     height: 70px;
     background-color: blue;
+    text-align: center;
 }
 
 #icone_container{
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
